@@ -1,11 +1,11 @@
 import './todo-item.style.css'
 import { IconPencil, IconTrash } from "../icons";
 
-export function ToDoItem ({ item }) {
-    const styles = ['todo-item']
+export function ToDoItem ({ item, onToggleCompleted }) {
+    const styles = ['todo-item'];
 
     if (item.completed) {
-        styles.push('completed')
+        styles.push('completed');
     }
 
     return (
@@ -13,11 +13,19 @@ export function ToDoItem ({ item }) {
             <p className="date">
                 {new Date(item.createdAt).toLocaleDateString('pt-BR')}
             </p>
+
             <div className="details">
-                <input type="checkbox" className="checkbox" defaultChecked={item.completed} />
+                <input
+                    type="checkbox"
+                    className="checkbox"
+                    defaultChecked={item.completed}
+                    onClick={() => onToggleCompleted(item)}
+                />
+
                 <p className="description">
                     {item.description}
                 </p>
+
                 <div className="actions">
                     <button className="btn">
                         <IconTrash />
@@ -28,5 +36,5 @@ export function ToDoItem ({ item }) {
                 </div>
             </div>
         </li>
-    )
+    );
 }
