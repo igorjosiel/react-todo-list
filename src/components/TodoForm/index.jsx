@@ -6,6 +6,7 @@ export function TodoForm ({ onSubmit }) {
     return (
         <form className="todo-form" action={onSubmit}>
             <TextInput
+                name="description"
                 placeholder="Digite o item que deseja adicionar"
                 required
             />
