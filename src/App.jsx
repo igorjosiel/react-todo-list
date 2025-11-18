@@ -106,6 +106,12 @@ function App() {
     });
   }
 
+  const deleteTodo = (todo) => {
+    setTodos(prevState => {
+      return prevState.filter(t => t.id !== todo.id);
+    });
+  }
+
   return (
     <main>
       <Container>
@@ -117,17 +123,35 @@ function App() {
 
         <ChecklistsWrapper>
           <SubHeading>Para estudar</SubHeading>
+
           <ToDoList>
             {todos.filter(todo => !todo.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
+              return (
+                <ToDoItem
+                  key={t.id}
+                  item={t}
+                  onToggleCompleted={toggleTodoCompleted}
+                  onDeleteTodo={deleteTodo}
+                />
+              );
             })}
           </ToDoList>
+
           <SubHeading>Concluído</SubHeading>
+
           <ToDoList>
             {todos.filter(todo => todo.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
+              return (
+                <ToDoItem
+                  key={t.id}
+                  item={t}
+                  onToggleCompleted={toggleTodoCompleted}
+                  onDeleteTodo={deleteTodo}
+                />
+              );
             })}
           </ToDoList>
+          
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
               <TodoForm onSubmit={addTodo} />
