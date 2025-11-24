@@ -14,9 +14,13 @@ export function ToDoItem ({ item }) {
 
     return (
         <li className={styles.join(' ')}>
-            <p className="date">
-                {new Date(item.createdAt).toLocaleDateString('pt-BR')}
-            </p>
+            <div className="details first-line">
+                <p className="title">{item.title}</p>
+
+                <p className="date">
+                    {new Date(item.createdAt).toLocaleDateString('pt-BR')}
+                </p>
+            </div>
 
             <div className="details">
                 <input
