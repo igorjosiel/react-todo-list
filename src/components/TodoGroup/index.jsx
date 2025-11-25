@@ -1,10 +1,11 @@
+import { Fragment } from "react";
 import { SubHeading } from "../SubHeading";
 import { ToDoItem } from "../ToDoItem";
 import { ToDoList } from "../ToDoList";
 
 export function TodoGroup ({ items, heading }) {
     return (
-        <>
+        <Fragment>
             <SubHeading>{heading}</SubHeading>
             
             <ToDoList>
@@ -17,6 +18,6 @@ export function TodoGroup ({ items, heading }) {
                     );
                 })}
             </ToDoList>
-        </>
+        </Fragment>
     );
 }
