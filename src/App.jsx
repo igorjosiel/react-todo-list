@@ -7,9 +7,9 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Heading from "./components/Heading";
 import { IconPlus, IconSchool } from "./components/icons";
-import { TodoForm } from "./components/TodoForm";
+import TodoForm from "./components/TodoForm";
 import TodoContext from "./components/TodoProvider/TodoContext";
-import { TodoGroup } from "./components/TodoGroup";
+import TodoGroup from "./components/TodoGroup";
 import EmptyState from "./components/EmptyState";
 
 function App() {

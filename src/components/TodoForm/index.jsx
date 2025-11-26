@@ -12,7 +12,7 @@ const DESCRIPTION_INPUT = "description";
 const DATE_INPUT = "date";
 const PRIORITY_INPUT = "priority";
 
-export function TodoForm({ onSubmit }) {
+export default function TodoForm({ onSubmit }) {
   const { selectedTodo } = use(TodoContext);
 
   return (
