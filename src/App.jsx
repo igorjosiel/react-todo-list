@@ -4,7 +4,7 @@ import Container from "./components/Container";
 import Dialog from "./components/Dialog";
 import FabButton from "./components/FabButton";
 import Footer from "./components/Footer";
-import { Header } from "./components/Header";
+import Header from "./components/Header";
 import { Heading } from "./components/Heading";
 import { IconPlus, IconSchool } from "./components/icons";
 import { TodoForm } from "./components/TodoForm";
