@@ -1,5 +1,5 @@
 import { use } from "react";
-import { Button } from '../Button';
+import Button from '../Button';
 import { TextInput } from '../TextInput';
 import { DateInput } from "../DateInput";
 import { SelectInput } from "../SelectInput";

@@ -1,6 +1,6 @@
 import { use } from "react";
-import { ChecklistsWrapper } from "./components/ChecklistsWrapper";
-import { Container } from "./components/Container";
+import ChecklistsWrapper from "./components/ChecklistsWrapper";
+import Container from "./components/Container";
 import { Dialog } from "./components/Dialog";
 import { FabButton } from "./components/FabButton";
 import { Footer } from "./components/Footer";
