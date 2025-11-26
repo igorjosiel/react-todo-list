@@ -4,44 +4,50 @@ import { TextInput } from '../TextInput';
 import { DateInput } from "../DateInput";
 import { SelectInput } from "../SelectInput";
 import TodoContext from '../TodoProvider/TodoContext';
+import { LabelInput } from "../LabelInput";
 import './todo-form.style.css';
+
+const TITLE_INPUT       = "title";
+const DESCRIPTION_INPUT = "description";
+const DATE_INPUT        = "date";
+const PRIORITY_INPUT    = "priority";
 
 export function TodoForm ({ onSubmit }) {
     const { selectedTodo } = use(TodoContext);
 
     return (
         <form className="todo-form" action={onSubmit}>
+            <LabelInput htmlFor={TITLE_INPUT}>Título</LabelInput>
             <TextInput
-                id="title"
-                name="title"
-                label="Título"
+                id={TITLE_INPUT}
+                name={TITLE_INPUT}
                 placeholder="Digite um título para o item"
+                defaultValue={selectedTodo?.[TITLE_INPUT]}
                 required
-                defaultValue={selectedTodo?.title}
             />
 
+            <LabelInput htmlFor={DESCRIPTION_INPUT}>Descrição</LabelInput>
             <TextInput
-                id="description"
-                name="description"
-                label="Descrição"
+                id={DESCRIPTION_INPUT}
+                name={DESCRIPTION_INPUT}
                 placeholder="Digite uma descrição para o item"
+                defaultValue={selectedTodo?.[DESCRIPTION_INPUT]}
                 required
-                defaultValue={selectedTodo?.description}
             />
 
+            <LabelInput htmlFor={DATE_INPUT}>Data</LabelInput>
             <DateInput
-                id="date"
-                name="date"
-                label="Data"
+                id={DATE_INPUT}
+                name={DATE_INPUT}
+                defaultValue={selectedTodo?.[DATE_INPUT]}
                 required
-                defaultValue={selectedTodo?.date}
             />
 
+            <LabelInput htmlFor={PRIORITY_INPUT}>Prioridade</LabelInput>
             <SelectInput
-                id="priority"
-                label="Prioridade"
-                name="priority"
-                defaultValue={selectedTodo?.priority}
+                id={PRIORITY_INPUT}
+                name={PRIORITY_INPUT}
+                defaultValue={selectedTodo?.[PRIORITY_INPUT]}
                 options={[
                     {
                         value: "",
