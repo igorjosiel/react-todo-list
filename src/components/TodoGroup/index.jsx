@@ -1,23 +1,18 @@
 import { Fragment } from "react";
-import { SubHeading } from "../SubHeading";
-import { ToDoItem } from "../ToDoItem";
-import { ToDoList } from "../ToDoList";
+import SubHeading from "../SubHeading";
+import ToDoItem from "../ToDoItem";
+import ToDoList from "../ToDoList";
 
-export function TodoGroup ({ items, heading }) {
-    return (
-        <Fragment>
-            <SubHeading>{heading}</SubHeading>
-            
-            <ToDoList>
-                {items.map(function (t) {
-                    return (
-                        <ToDoItem
-                            key={t.id}
-                            item={t}
-                        />
-                    );
-                })}
-            </ToDoList>
-        </Fragment>
-    );
+export default function TodoGroup({ items, heading }) {
+  return (
+    <Fragment>
+      <SubHeading>{heading}</SubHeading>
+
+      <ToDoList>
+        {items.map(function (t) {
+          return <ToDoItem key={t.id} item={t} />;
+        })}
+      </ToDoList>
+    </Fragment>
+  );
 }

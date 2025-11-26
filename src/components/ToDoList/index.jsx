@@ -1,9 +1,9 @@
-import './todo-list.style.css'
+import "./todo-list.style.css";
 
-export function ToDoList ({ children }) {
-    return (
-        <ul className='todo-list'>
-            {children}
-        </ul>
-    );
+export default function ToDoList({ children, ...rest }) {
+  return (
+    <ul className="todo-list" {...rest}>
+      {children}
+    </ul>
+  );
 }

@@ -1,17 +1,17 @@
 .select-input {
-    font-size: 16px;
-    line-height: 150%;
-    color: #EAEAEA;
-    border-radius: 5px;
-    border: 1px solid #EAEAEA;
-    width: 360px;
-    height: 47px;
-    max-width: 100%;
-    text-align: center;
-    background-color: transparent;
-    margin-bottom: 10px;
+  font-size: 16px;
+  line-height: var(--line-height-lg);
+  color: var(--secondary-color);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--secondary-color);
+  width: 360px;
+  height: 47px;
+  max-width: 100%;
+  text-align: center;
+  background-color: transparent;
+  margin-bottom: 10px;
 }
 
 .select-input option {
-    background-color: #1E1E1E;
+  background-color: var(--tertiary-color);
 }

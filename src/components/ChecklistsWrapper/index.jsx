@@ -1,7 +1,9 @@
-import './checklists-wrapper.style.css'
+import "./checklists-wrapper.style.css";
 
-export function ChecklistsWrapper({ children }) {
-    return <section className='wrapper'>
-        {children}
+export default function ChecklistsWrapper({ children, ...rest }) {
+  return (
+    <section className="wrapper" {...rest}>
+      {children}
     </section>
+  );
 }

@@ -1,7 +1,9 @@
-import './header.style.css'
+import "./header.style.css";
 
-export function Header ({ children }) {
-    return (<header className="header">
-        {children}
-    </header>)
+export default function Header({ children, ...rest }) {
+  return (
+    <header className="header" {...rest}>
+      {children}
+    </header>
+  );
 }
