@@ -28,7 +28,7 @@ function App() {
     else addTodo(formData);
 
     closeFormTodoDialog();
-  }
+  };
 
   return (
     <main>
@@ -42,16 +42,16 @@ function App() {
         <ChecklistsWrapper>
           <TodoGroup
             heading="Para estudar"
-            items={todos.filter(t => !t.completed)}
+            items={todos.filter((t) => !t.completed)}
           />
 
           {todos.length === 0 && <EmptyState />}
 
           <TodoGroup
             heading="Concluído"
-            items={todos.filter(t => t.completed)}
+            items={todos.filter((t) => t.completed)}
           />
-          
+
           <Footer>
             <Dialog isOpen={showDialog} onClose={closeFormTodoDialog}>
               <TodoForm onSubmit={handleFormSubmit} />
