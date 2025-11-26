@@ -1,7 +1,9 @@
 import "./footer.style.css";
 
-export default function Footer({ children }) {
+export default function Footer({ children, ...rest }) {
   return (
-    <footer className="footer">{children}</footer>
+    <footer className="footer" {...rest}>
+      {children}
+    </footer>
   );
 }
