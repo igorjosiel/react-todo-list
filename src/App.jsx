@@ -57,7 +57,11 @@ function App() {
               <TodoForm onSubmit={handleFormSubmit} />
             </Dialog>
 
-            <FabButton onClick={() => openFormTodoDialog()}>
+            <FabButton
+              ariaLabel="Adicionar novo todo"
+              title="Adicionar novo todo"
+              onClick={openFormTodoDialog}
+            >
               <IconPlus />
             </FabButton>
           </Footer>

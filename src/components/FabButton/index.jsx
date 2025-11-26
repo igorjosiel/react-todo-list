@@ -1,9 +1,14 @@
 import './fab-button.style.css'
 
-export function FabButton({ children, ...rest }) {
+export function FabButton({ children, ariaLabel, title, ...rest }) {
     return (
-        <button className='fab' {...rest}>
+        <button
+            className='fab'
+            aria-label={ariaLabel}
+            title={title}
+            {...rest}
+        >
             {children}
         </button>
-    )
+    );
 }
