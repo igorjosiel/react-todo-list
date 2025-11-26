@@ -1,8 +1,8 @@
 import { use } from "react";
 import Button from "../Button";
-import { TextInput } from "../TextInput";
+import TextInput from "../TextInput";
 import DateInput from "../DateInput";
-import { SelectInput } from "../SelectInput";
+import SelectInput from "../SelectInput";
 import TodoContext from "../TodoProvider/TodoContext";
 import LabelInput from "../LabelInput";
 import "./todo-form.style.css";
