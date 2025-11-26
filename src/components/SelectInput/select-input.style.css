@@ -1,9 +1,9 @@
 .select-input {
   font-size: 16px;
-  line-height: 150%;
-  color: #eaeaea;
-  border-radius: 5px;
-  border: 1px solid #eaeaea;
+  line-height: var(--line-height-lg);
+  color: var(--secondary-color);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--secondary-color);
   width: 360px;
   height: 47px;
   max-width: 100%;
@@ -13,5 +13,5 @@
 }
 
 .select-input option {
-  background-color: #1e1e1e;
+  background-color: var(--tertiary-color);
 }

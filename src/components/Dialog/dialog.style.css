@@ -1,12 +1,12 @@
 ::backdrop {
-  background-color: #504d4d;
+  background-color: var(--dialog-bg-color);
   opacity: 0.85;
 }
 
 .dialog {
-  background-color: #1e1e1e;
+  background-color: var(--tertiary-color);
   border: none;
-  border-radius: 16px;
+  border-radius: var(--border-radius-lg);
   padding: 16px;
 }
 

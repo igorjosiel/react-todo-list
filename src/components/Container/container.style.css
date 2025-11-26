@@ -1,6 +1,6 @@
 .container {
-  background-color: #1e1e1e;
-  border-radius: 16px;
+  background-color: var(--tertiary-color);
+  border-radius: var(--border-radius-lg);
   width: 440px;
   max-width: 90%;
   margin: 0 auto;

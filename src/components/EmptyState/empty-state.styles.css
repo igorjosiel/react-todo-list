@@ -9,8 +9,8 @@
 
 .empty-state p {
   margin: 0;
-  color: #eaeaea;
+  color: var(--secondary-color);
   text-align: center;
   font-size: 16px;
-  line-height: 150%;
+  line-height: var(--line-height-lg);
 }
