@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
-import './text-input.style.css';
+import { Fragment } from "react";
+import './date-input.style.css';
 
-export function TextInput ({ id, label, ...rest }) {
+export function DateInput ({ id, label, ...rest }) {
     return (
         <Fragment>
             <label htmlFor={id} className="label-input">
@@ -10,8 +10,8 @@ export function TextInput ({ id, label, ...rest }) {
 
             <input
                 id={id}
-                type="text"
-                className="text-input"
+                type="date"
+                className="date-input"
                 {...rest}
             />
         </Fragment>

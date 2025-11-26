@@ -60,7 +60,7 @@ function App() {
             <FabButton
               ariaLabel="Adicionar novo todo"
               title="Adicionar novo todo"
-              onClick={openFormTodoDialog}
+              onClick={() => openFormTodoDialog()}
             >
               <IconPlus />
             </FabButton>

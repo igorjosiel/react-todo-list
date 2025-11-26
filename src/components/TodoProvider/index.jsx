@@ -15,15 +15,17 @@ export function TodoProvider({ children }) {
     }, [todos]);
 
     const addTodo = (formData) => {
-        const title = formData.get("title");
+        const title       = formData.get("title");
         const description = formData.get("description");
-        const priority = formData.get("priority");
+        const date        = formData.get("date");
+        const priority    = formData.get("priority");
 
         setTodos(prevState => {
             const newTodo = {
                 id: prevState.length + 1,
                 title,
                 description,
+                date,
                 priority,
                 completed: false,
                 createdAt: new Date().toISOString(),
@@ -56,6 +58,7 @@ export function TodoProvider({ children }) {
                         ...t,
                         title: formData.get("title"),
                         description: formData.get("description"),
+                        date: formData.get("date"),
                         priority: formData.get("priority"),
                     }
                 }

@@ -1,6 +1,7 @@
 import { use } from "react";
 import { Button } from '../Button';
 import { TextInput } from '../TextInput';
+import { DateInput } from "../DateInput";
 import { SelectInput } from "../SelectInput";
 import TodoContext from '../TodoProvider/TodoContext';
 import './todo-form.style.css';
@@ -26,6 +27,14 @@ export function TodoForm ({ onSubmit }) {
                 placeholder="Digite uma descrição para o item"
                 required
                 defaultValue={selectedTodo?.description}
+            />
+
+            <DateInput
+                id="date"
+                name="date"
+                label="Data"
+                required
+                defaultValue={selectedTodo?.date}
             />
 
             <SelectInput
