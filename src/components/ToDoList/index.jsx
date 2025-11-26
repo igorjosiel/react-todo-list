@@ -5,5 +5,5 @@ export function ToDoList ({ children }) {
         <ul className='todo-list'>
             {children}
         </ul>
-    )
+    );
 }

@@ -8,19 +8,25 @@ export function TodoProvider({ children }) {
 
     const [todos, setTodos] = useState(savedTodos ? JSON.parse(savedTodos) : []);
     const [showDialog, setShowDialog] = useState(false);
-    const [selectedTodo, setSelectedTodo] = useState();
+    const [selectedTodo, setSelectedTodo] = useState(null);
 
     useEffect(() => {
         localStorage.setItem(TODOS, JSON.stringify(todos));
     }, [todos]);
 
     const addTodo = (formData) => {
+        const title       = formData.get("title");
         const description = formData.get("description");
+        const date        = formData.get("date");
+        const priority    = formData.get("priority");
 
         setTodos(prevState => {
             const newTodo = {
                 id: prevState.length + 1,
+                title,
                 description,
+                date,
+                priority,
                 completed: false,
                 createdAt: new Date().toISOString(),
             }
@@ -50,7 +56,10 @@ export function TodoProvider({ children }) {
                 if (t.id === selectedTodo.id) {
                     return {
                         ...t,
+                        title: formData.get("title"),
                         description: formData.get("description"),
+                        date: formData.get("date"),
+                        priority: formData.get("priority"),
                     }
                 }
 
