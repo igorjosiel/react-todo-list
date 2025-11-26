@@ -1,14 +1,22 @@
+.label-select {
+    color: #877EED;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 150%;
+}
+
 .select-input {
     font-size: 16px;
     line-height: 150%;
     color: #EAEAEA;
-    border-radius: 24px;
+    border-radius: 5px;
     border: 1px solid #EAEAEA;
     width: 360px;
     height: 47px;
     max-width: 100%;
     text-align: center;
     background-color: transparent;
+    margin-bottom: 10px;
 }
 
 .select-input option {

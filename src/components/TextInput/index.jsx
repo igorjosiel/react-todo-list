@@ -1,7 +1,14 @@
+import { Fragment } from 'react';
 import './text-input.style.css';
 
-export function TextInput (props) {
+export function TextInput ({ id, label, ...rest }) {
     return (
-        <input {...props} className='text-input' />
+        <Fragment>
+            <label htmlFor={id} className='label-input'>
+                {label}
+            </label>
+
+            <input id={id} className='text-input' {...rest} />
+        </Fragment>
     );
 }
