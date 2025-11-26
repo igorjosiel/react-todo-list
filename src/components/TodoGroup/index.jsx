@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { SubHeading } from "../SubHeading";
+import SubHeading from "../SubHeading";
 import { ToDoItem } from "../ToDoItem";
 import { ToDoList } from "../ToDoList";
 
