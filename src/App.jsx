@@ -1,11 +1,11 @@
-import { Fragment, use, useState } from "react";
+import { Fragment, use, useState, useEffect } from "react";
 import ChecklistsWrapper from "./components/ChecklistsWrapper";
 import Container from "./components/Container";
 import Dialog from "./components/Dialog";
 import FabButton from "./components/FabButton";
 import Header from "./components/Header";
 import Heading from "./components/Heading";
-import { IconPlus, IconSchool, IconSearch } from "./components/icons";
+import { IconHighPriority, IconPlus, IconSchool, IconSearch } from "./components/icons";
 import TodoForm from "./components/TodoForm";
 import TodoContext from "./components/TodoProvider/TodoContext";
 import TodoGroup from "./components/TodoGroup";
@@ -24,10 +24,25 @@ function App() {
     editTodo,
   } = use(TodoContext);
 
-  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [showSearchInput, setShowSearchInput]   = useState(false);
+  const [showHighPriority, setShowHighPriority] = useState(false);
   const [searchInputValue, setSearchInputValue] = useState("");
 
-  const handleSearchInput = () => setShowSearchInput(!showSearchInput);
+  useEffect(() => {
+    if (showHighPriority) {
+      setShowSearchInput(false);
+      setSearchInputValue("");
+    }
+  }, [showHighPriority]);
+
+  useEffect(() => {
+    if (showSearchInput) setShowHighPriority(false);
+    else setSearchInputValue("");
+  }, [showSearchInput]);
+
+  const handleSearchInput  = () => setShowSearchInput(!showSearchInput);
+  const handleHighPriority = () => setShowHighPriority(!showHighPriority);
+
   const handleSearchInputValue = (event) => {
     setSearchInputValue(event.target.value);
   };
@@ -40,9 +55,12 @@ function App() {
   };
 
   const filterCompletedTodos = todos.filter((t) => t.completed);
-  const filterPendingTodos = todos.filter((t) => !t.completed);
-  const filterSearchedTodos = todos.filter((t) =>
+  const filterPendingTodos   = todos.filter((t) => !t.completed);
+  const filterSearchedTodos  = todos.filter((t) =>
     t.title.toLowerCase().includes(searchInputValue.toLowerCase())
+  );
+  const filterHighPriorityTodos = todos.filter((t) =>
+    t.priority === "high" && !t.completed
   );
 
   return (
@@ -62,6 +80,14 @@ function App() {
               onClick={() => handleSearchInput()}
             >
               <IconSearch />
+            </FabButton>
+
+            <FabButton
+              ariaLabel="Filtrar por prioridade alta"
+              title="Filtrar por prioridade alta"
+              onClick={() => handleHighPriority()}
+            >
+              <IconHighPriority />
             </FabButton>
 
             <FabButton
@@ -95,12 +121,20 @@ function App() {
             </Fragment>
           )}
 
-          {!showSearchInput && (
+          {showHighPriority && (
             <Fragment>
-              <TodoGroup heading="Para estudar" items={filterPendingTodos} />
+              <TodoGroup
+                heading="Prioridade alta"
+                items={filterHighPriorityTodos}
+              />
+            </Fragment>
+          )}
 
+          {!showSearchInput && !showHighPriority && (
+            <Fragment>
               {todos.length === 0 && <EmptyState />}
 
+              <TodoGroup heading="Para estudar" items={filterPendingTodos} />
               <TodoGroup heading="Concluído" items={filterCompletedTodos} />
             </Fragment>
           )}

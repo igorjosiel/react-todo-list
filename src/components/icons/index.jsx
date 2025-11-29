@@ -100,3 +100,17 @@ export function IconSearch() {
     </svg>
   );
 }
+
+export function IconHighPriority() {
+  return (
+    <svg
+      width="16"
+      height="18"
+      viewBox="0 0 16 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M2 1V17H3V11.5L13 15V3L3 6.5V1H2Z" fill="#EAEAEA" />
+    </svg>
+  );
+}
