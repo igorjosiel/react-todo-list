@@ -1,6 +1,6 @@
 import "./select-input.style.css";
 
-export default function SelectInput({ id, label, options, ...rest }) {
+export default function SelectInput({ id, options, ...rest }) {
   return (
     <select id={id} className="select-input" {...rest}>
       {options.map(({ value, option }, index) => {
