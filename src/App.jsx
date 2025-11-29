@@ -1,16 +1,17 @@
-import { use } from "react";
+import { use, useState } from "react";
 import ChecklistsWrapper from "./components/ChecklistsWrapper";
 import Container from "./components/Container";
 import Dialog from "./components/Dialog";
 import FabButton from "./components/FabButton";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Heading from "./components/Heading";
-import { IconPlus, IconSchool } from "./components/icons";
+import { IconPlus, IconSchool, IconSearch } from "./components/icons";
 import TodoForm from "./components/TodoForm";
 import TodoContext from "./components/TodoProvider/TodoContext";
 import TodoGroup from "./components/TodoGroup";
 import EmptyState from "./components/EmptyState";
+import TextInput from "./components/TextInput";
+import ChecklistsWrapperHeader from "./components/ChecklistsWrapperHeader";
 
 function App() {
   const {
@@ -22,6 +23,10 @@ function App() {
     selectedTodo,
     editTodo,
   } = use(TodoContext);
+
+  const [showSearchInput, setShowSearchInput] = useState(false);
+
+  const handleSearchInput = () => setShowSearchInput(!showSearchInput);
 
   const handleFormSubmit = (formData) => {
     if (selectedTodo) editTodo(formData);
@@ -40,6 +45,37 @@ function App() {
         </Header>
 
         <ChecklistsWrapper>
+          <ChecklistsWrapperHeader>
+            <FabButton
+              ariaLabel="Buscar todo"
+              title="Buscar todo"
+              onClick={() => handleSearchInput()}
+            >
+              <IconSearch />
+            </FabButton>
+
+            <FabButton
+              ariaLabel="Adicionar novo todo"
+              title="Adicionar novo todo"
+              onClick={() => openFormTodoDialog()}
+            >
+              <IconPlus />
+            </FabButton>
+
+            <Dialog isOpen={showDialog} onClose={closeFormTodoDialog}>
+              <TodoForm onSubmit={handleFormSubmit} />
+            </Dialog>
+          </ChecklistsWrapperHeader>
+
+          {showSearchInput && (
+            <TextInput
+              type="search"
+              placeholder="Buscar tarefa..."
+              autoFocus
+              mb="1.5rem"
+            />
+          )}
+
           <TodoGroup
             heading="Para estudar"
             items={todos.filter((t) => !t.completed)}
@@ -51,20 +87,6 @@ function App() {
             heading="Concluído"
             items={todos.filter((t) => t.completed)}
           />
-
-          <Footer>
-            <Dialog isOpen={showDialog} onClose={closeFormTodoDialog}>
-              <TodoForm onSubmit={handleFormSubmit} />
-            </Dialog>
-
-            <FabButton
-              ariaLabel="Adicionar novo todo"
-              title="Adicionar novo todo"
-              onClick={() => openFormTodoDialog()}
-            >
-              <IconPlus />
-            </FabButton>
-          </Footer>
         </ChecklistsWrapper>
       </Container>
     </main>

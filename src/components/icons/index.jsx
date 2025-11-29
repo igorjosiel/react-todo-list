@@ -92,10 +92,7 @@ export function IconSearch() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M11 4a7 7 0 100 14 7 7 0 000-14z"
-        fill="#EAEAEA"
-      />
+      <path d="M11 4a7 7 0 100 14 7 7 0 000-14z" fill="#EAEAEA" />
       <path
         d="M20.707 20.293l-5.387-5.387a1 1 0 10-1.414 1.414l5.387 5.387a1 1 0 001.414-1.414z"
         fill="#EAEAEA"
