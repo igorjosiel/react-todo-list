@@ -77,7 +77,8 @@ function App() {
             <FabButton
               ariaLabel="Buscar todo"
               title="Buscar todo"
-              onClick={() => handleSearchInput()}
+              onClick={handleSearchInput}
+              ariaPressed={showSearchInput}
             >
               <IconSearch />
             </FabButton>
@@ -85,7 +86,8 @@ function App() {
             <FabButton
               ariaLabel="Filtrar por prioridade alta"
               title="Filtrar por prioridade alta"
-              onClick={() => handleHighPriority()}
+              onClick={handleHighPriority}
+              ariaPressed={showHighPriority}
             >
               <IconHighPriority />
             </FabButton>
