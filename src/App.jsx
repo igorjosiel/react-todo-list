@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { Fragment, use, useState } from "react";
 import ChecklistsWrapper from "./components/ChecklistsWrapper";
 import Container from "./components/Container";
 import Dialog from "./components/Dialog";
@@ -25,8 +25,12 @@ function App() {
   } = use(TodoContext);
 
   const [showSearchInput, setShowSearchInput] = useState(false);
+  const [searchInputValue, setSearchInputValue] = useState("");
 
   const handleSearchInput = () => setShowSearchInput(!showSearchInput);
+  const handleSearchInputValue = (event) => {
+    setSearchInputValue(event.target.value);
+  };
 
   const handleFormSubmit = (formData) => {
     if (selectedTodo) editTodo(formData);
@@ -34,6 +38,12 @@ function App() {
 
     closeFormTodoDialog();
   };
+
+  const filterCompletedTodos = todos.filter((t) => t.completed);
+  const filterPendingTodos = todos.filter((t) => !t.completed);
+  const filterSearchedTodos = todos.filter((t) =>
+    t.title.toLowerCase().includes(searchInputValue.toLowerCase())
+  );
 
   return (
     <main>
@@ -68,25 +78,32 @@ function App() {
           </ChecklistsWrapperHeader>
 
           {showSearchInput && (
-            <TextInput
-              type="search"
-              placeholder="Buscar tarefa..."
-              autoFocus
-              mb="1.5rem"
-            />
+            <Fragment>
+              <TextInput
+                value={searchInputValue}
+                onChange={handleSearchInputValue}
+                type="search"
+                placeholder="Buscar tarefa..."
+                autoFocus
+                mb="1.5rem"
+              />
+
+              <TodoGroup
+                heading="Resultados da busca"
+                items={filterSearchedTodos}
+              />
+            </Fragment>
           )}
 
-          <TodoGroup
-            heading="Para estudar"
-            items={todos.filter((t) => !t.completed)}
-          />
+          {!showSearchInput && (
+            <Fragment>
+              <TodoGroup heading="Para estudar" items={filterPendingTodos} />
 
-          {todos.length === 0 && <EmptyState />}
+              {todos.length === 0 && <EmptyState />}
 
-          <TodoGroup
-            heading="Concluído"
-            items={todos.filter((t) => t.completed)}
-          />
+              <TodoGroup heading="Concluído" items={filterCompletedTodos} />
+            </Fragment>
+          )}
         </ChecklistsWrapper>
       </Container>
     </main>
