@@ -1,12 +1,25 @@
-export function IconSchool() {
+export function IconSchool({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Ícone: escola",
+}) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 18;
   return (
     <svg
-      width="24"
-      height="18"
+      width={w}
+      height={h}
       viewBox="0 0 24 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path
         d="M12 0L23.0156 6V14.0156H21V7.07812L12 12L0.984375 6L12 0ZM5.01562 10.1719L12 14.0156L18.9844 10.1719V14.2031L12 18L5.01562 14.2031V10.1719Z"
         fill="#1E1E1E"
@@ -15,15 +28,28 @@ export function IconSchool() {
   );
 }
 
-export function IconPencil() {
+export function IconPencil({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Editar",
+}) {
+  const w = width ?? size ?? 16;
+  const h = height ?? size ?? 20;
   return (
     <svg
-      width="16"
-      height="20"
+      width={w}
+      height={h}
       viewBox="0 0 16 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path
         d="M2 14L9.375 6.625L11.875 9.125L4.5 16.5H2V14ZM13.8125 6.25C13.9375 6.375 14 6.53125 14 6.71875C14 6.90625 13.9375 7.0625 13.8125 7.1875L12.5938 8.40625L10.0938 5.90625L11.3125 4.6875C11.4375 4.5625 11.5938 4.5 11.7812 4.5C11.9688 4.5 12.125 4.5625 12.25 4.6875L13.8125 6.25Z"
         fill="#EAEAEA"
@@ -32,15 +58,28 @@ export function IconPencil() {
   );
 }
 
-export function IconTrash() {
+export function IconTrash({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Excluir",
+}) {
+  const w = width ?? size ?? 10;
+  const h = height ?? size ?? 13;
   return (
     <svg
-      width="10"
-      height="13"
+      width={w}
+      height={h}
       viewBox="0 0 10 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path
         d="M9.65625 1.15625V2.5H0.34375V1.15625H2.65625L3.34375 0.5H6.65625L7.34375 1.15625H9.65625ZM1 11.1562V3.15625H9V11.1562C9 11.5104 8.86458 11.8229 8.59375 12.0938C8.32292 12.3646 8.01042 12.5 7.65625 12.5H2.34375C1.98958 12.5 1.67708 12.3646 1.40625 12.0938C1.13542 11.8229 1 11.5104 1 11.1562Z"
         fill="#EAEAEA"
@@ -49,15 +88,28 @@ export function IconTrash() {
   );
 }
 
-export function IconPlus() {
+export function IconPlus({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Adicionar",
+}) {
+  const w = width ?? size ?? 14;
+  const h = height ?? size ?? 14;
   return (
     <svg
-      width="14"
-      height="14"
+      width={w}
+      height={h}
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path
         d="M13.9844 7.98438H7.98438V13.9844H6.01562V7.98438H0.015625V6.01562H6.01562V0.015625H7.98438V6.01562H13.9844V7.98438Z"
         fill="#EAEAEA"
@@ -66,15 +118,28 @@ export function IconPlus() {
   );
 }
 
-export function IconClose() {
+export function IconClose({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Fechar",
+}) {
+  const w = width ?? size ?? 10;
+  const h = height ?? size ?? 10;
   return (
     <svg
-      width="10"
-      height="10"
+      width={w}
+      height={h}
       viewBox="0 0 10 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path
         d="M9.65625 1.28125L5.9375 5L9.65625 8.71875L8.71875 9.65625L5 5.9375L1.28125 9.65625L0.34375 8.71875L4.0625 5L0.34375 1.28125L1.28125 0.34375L5 4.0625L8.71875 0.34375L9.65625 1.28125Z"
         fill="#EAEAEA"
@@ -83,15 +148,28 @@ export function IconClose() {
   );
 }
 
-export function IconSearch() {
+export function IconSearch({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Buscar",
+}) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
   return (
     <svg
-      width="24"
-      height="24"
+      width={w}
+      height={h}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path d="M11 4a7 7 0 100 14 7 7 0 000-14z" fill="#EAEAEA" />
       <path
         d="M20.707 20.293l-5.387-5.387a1 1 0 10-1.414 1.414l5.387 5.387a1 1 0 001.414-1.414z"
@@ -101,15 +179,28 @@ export function IconSearch() {
   );
 }
 
-export function IconHighPriority() {
+export function IconHighPriority({
+  size,
+  width,
+  height,
+  className = "",
+  title = "Prioridade alta",
+}) {
+  const w = width ?? size ?? 16;
+  const h = height ?? size ?? 18;
   return (
     <svg
-      width="16"
-      height="18"
+      width={w}
+      height={h}
       viewBox="0 0 16 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : "presentation"}
+      aria-label={title ?? undefined}
+      aria-hidden={title ? undefined : true}
     >
+      {title ? <title>{title}</title> : null}
       <path d="M2 1V17H3V11.5L13 15V3L3 6.5V1H2Z" fill="#EAEAEA" />
     </svg>
   );
