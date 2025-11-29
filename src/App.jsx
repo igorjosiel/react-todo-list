@@ -1,4 +1,5 @@
 import { Fragment, use, useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import ChecklistsWrapper from "./components/ChecklistsWrapper";
 import Container from "./components/Container";
 import Dialog from "./components/Dialog";
@@ -66,6 +67,8 @@ function App() {
   return (
     <main>
       <Container>
+        <ToastContainer />
+
         <Header>
           <Heading>
             <IconSchool /> Plano de estudos
