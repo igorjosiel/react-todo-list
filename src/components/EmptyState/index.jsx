@@ -1,9 +1,9 @@
 import "./empty-state.styles.css";
 
-export default function EmptyState({ ...rest }) {
+export default function EmptyState({ message, ...rest }) {
   return (
     <section className="empty-state" {...rest}>
-      <p>Ainda não há tarefas cadastradas, adicione para começar!</p>
+      <p>{message}</p>
 
       <img src="./empty.png" alt="Ícone de documento vazio" />
     </section>
