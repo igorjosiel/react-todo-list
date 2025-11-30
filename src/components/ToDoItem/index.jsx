@@ -1,4 +1,5 @@
 import { use } from "react";
+import { toast } from "react-toastify";
 import { IconPencil, IconTrash } from "../icons";
 import TodoContext from "../TodoProvider/TodoContext";
 import "./todo-item.style.css";
@@ -15,6 +16,17 @@ export default function ToDoItem({ item }) {
   if (item.completed) {
     styles.push("completed");
   }
+
+  const handleDelete = async (item) => {
+    try {
+      await deleteTodo(item);
+
+      toast.success("Tarefa removida com sucesso!");
+    } catch (error) {
+      console.error("Erro ao remover tarefa: ", error);
+      toast.error("Ocorreu um erro ao remover a tarefa.");
+    }
+  };
 
   return (
     <li className={styles.join(" ")}>
@@ -37,7 +49,7 @@ export default function ToDoItem({ item }) {
         <p className="description">{item.description}</p>
 
         <div className="actions">
-          <button className="btn" onClick={() => deleteTodo(item)}>
+          <button className="btn" onClick={() => handleDelete(item)}>
             <IconTrash />
           </button>
           <button className="btn" onClick={() => openFormTodoDialog(item)}>

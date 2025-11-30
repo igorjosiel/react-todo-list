@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import TodoContext from "./TodoContext";
 
 const TODOS = "todos";
@@ -34,8 +33,6 @@ export default function TodoProvider({ children }) {
 
       return [...prevState, newTodo];
     });
-
-    toast.success("Todo adicionado com sucesso!");
   };
 
   const toggleTodoCompleted = (todo) => {
@@ -69,16 +66,12 @@ export default function TodoProvider({ children }) {
         return t;
       });
     });
-
-    toast.success("Todo editado com sucesso!");
   };
 
   const deleteTodo = (todo) => {
     setTodos((prevState) => {
       return prevState.filter((t) => t.id !== todo.id);
     });
-
-    toast.success("Todo removido com sucesso!");
   };
 
   const openFormTodoDialog = (todo) => {

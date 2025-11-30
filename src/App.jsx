@@ -1,12 +1,17 @@
 import { Fragment, use, useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import ChecklistsWrapper from "./components/ChecklistsWrapper";
 import Container from "./components/Container";
 import Dialog from "./components/Dialog";
 import FabButton from "./components/FabButton";
 import Header from "./components/Header";
 import Heading from "./components/Heading";
-import { IconHighPriority, IconPlus, IconSchool, IconSearch } from "./components/icons";
+import {
+  IconHighPriority,
+  IconPlus,
+  IconSchool,
+  IconSearch,
+} from "./components/icons";
 import TodoForm from "./components/TodoForm";
 import TodoContext from "./components/TodoProvider/TodoContext";
 import TodoGroup from "./components/TodoGroup";
@@ -25,7 +30,7 @@ function App() {
     editTodo,
   } = use(TodoContext);
 
-  const [showSearchInput, setShowSearchInput]   = useState(false);
+  const [showSearchInput, setShowSearchInput] = useState(false);
   const [showHighPriority, setShowHighPriority] = useState(false);
   const [searchInputValue, setSearchInputValue] = useState("");
 
@@ -41,27 +46,39 @@ function App() {
     else setSearchInputValue("");
   }, [showSearchInput]);
 
-  const handleSearchInput  = () => setShowSearchInput(!showSearchInput);
+  const handleSearchInput = () => setShowSearchInput(!showSearchInput);
   const handleHighPriority = () => setShowHighPriority(!showHighPriority);
 
   const handleSearchInputValue = (event) => {
     setSearchInputValue(event.target.value);
   };
 
-  const handleFormSubmit = (formData) => {
-    if (selectedTodo) editTodo(formData);
-    else addTodo(formData);
+  const handleFormSubmit = async (formData) => {
+    try {
+      if (selectedTodo) {
+        await editTodo(formData);
+
+        toast.success("Tarefa editada com sucesso!");
+      } else {
+        await addTodo(formData);
+
+        toast.success("Tarefa adicionada com sucesso!");
+      }
+    } catch (error) {
+      console.error("Erro ao salvar a tarefa:", error);
+      toast.error("Ocorreu um erro ao salvar a tarefa.");
+    }
 
     closeFormTodoDialog();
   };
 
   const filterCompletedTodos = todos.filter((t) => t.completed);
-  const filterPendingTodos   = todos.filter((t) => !t.completed);
-  const filterSearchedTodos  = todos.filter((t) =>
+  const filterPendingTodos = todos.filter((t) => !t.completed);
+  const filterSearchedTodos = todos.filter((t) =>
     t.title.toLowerCase().includes(searchInputValue.toLowerCase())
   );
-  const filterHighPriorityTodos = todos.filter((t) =>
-    t.priority === "high" && !t.completed
+  const filterHighPriorityTodos = todos.filter(
+    (t) => t.priority === "high" && !t.completed
   );
 
   return (
@@ -137,10 +154,20 @@ function App() {
 
           {!showSearchInput && !showHighPriority && (
             <Fragment>
-              {todos.length === 0 && <EmptyState />}
+              {todos.length === 0 && (
+                <EmptyState
+                  message={
+                    "Ainda não há tarefas cadastradas, adicione para começar!"
+                  }
+                />
+              )}
 
-              <TodoGroup heading="Para estudar" items={filterPendingTodos} />
-              <TodoGroup heading="Concluído" items={filterCompletedTodos} />
+              {filterPendingTodos.length > 0 && (
+                <TodoGroup heading="Para estudar" items={filterPendingTodos} />
+              )}
+              {filterCompletedTodos.length > 0 && (
+                <TodoGroup heading="Concluído" items={filterCompletedTodos} />
+              )}
             </Fragment>
           )}
         </ChecklistsWrapper>
