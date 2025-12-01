@@ -24,7 +24,7 @@ export default function Dialog({ isOpen, onClose, children }) {
 
   return (
     <React.Fragment>
-      <dialog ref={dialogRef} className="dialog">
+      <dialog ref={dialogRef} className="dialog" role="dialog">
         <div className="btn-close-wrapper">
           <button autoFocus onClick={onClose} className="btn-close">
             <IconClose />

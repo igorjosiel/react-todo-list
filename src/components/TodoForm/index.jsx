@@ -40,7 +40,6 @@ export default function TodoForm({ onSubmit }) {
         id={DATE_INPUT}
         name={DATE_INPUT}
         defaultValue={selectedTodo?.[DATE_INPUT]}
-        required
       />
 
       <LabelInput htmlFor={PRIORITY_INPUT}>Prioridade</LabelInput>
