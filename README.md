@@ -1,5 +1,3 @@
-![](thumbnail.png)
-
 # App de Checklist de Estudos
 
 Aplicação React para gerenciar tarefas de estudo (criar, editar, remover, marcar como concluídas), com filtros, busca, prioridade e feedback visual.
@@ -50,6 +48,11 @@ Aplicação React para gerenciar tarefas de estudo (criar, editar, remover, marc
 ---
 
 ## 📸 Prévia do Projeto
+
+![Tela inicial](./docs/images/plano_estudos_tela_inicial.png)
+![Tela busca](./docs/images/plano_estudos_busca.png)
+![Tela adicionar](./docs/images/plano_estudos_adicionar_todo.png)
+![Tela feedback](./docs/images/plano_estudos_feedback.png)
 
 ---
 
