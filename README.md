@@ -2,57 +2,111 @@
 
 # App de Checklist de Estudos
 
-Um projeto prático desenvolvido passo a passo para quem já tem o básico de ReactJS e quer evoluir para construir aplicações mais organizadas, escaláveis e com experiência moderna. Ao longo do curso, criamos um app de checklist para organizar estudos, tarefas e o que mais precisar.
-
-## 🔨 Funcionalidades do projeto
-
-* Adição, edição e exclusão de tarefas
-* Organização das tarefas em "Para estudar" e "Concluído"
-* Marcação de tarefas como concluídas
-* Feedback visual para lista vazia (empty state)
-* Modal para adicionar/editar tarefas
-* Lista animada de tarefas
-
-![](screen-capture.png)
-
-## ✔️ Técnicas e tecnologias utilizadas
-
-O desenvolvimento do projeto aborda as seguintes técnicas e tecnologias:
-
-* **useState e useEffect**: Gerenciamento de estado e persistência no localStorage
-* **useContext**: Contexto global para compartilhar estado das tarefas
-* **Componentização**: Componentes reutilizáveis como Button, FabButton, Dialog, TodoForm, TodoItem e TodoGroup
-* **Estilização com CSS Modules**: Organização dos estilos por componente
-* **Manipulação de formulários controlados**
-* **Persistência local com localStorage**: Salva as tarefas mesmo fechando o app
-* **Ícones SVG personalizados**
-* **Boas práticas de organização de código**
-
-## 🛠️ Como rodar o projeto
-
-Após baixar o projeto, siga os passos abaixo para executar localmente:
-
-1. Certifique-se de que você já tem Node.js instalado ([guia oficial](https://nodejs.org/en/download/)).
-2. No terminal, navegue até a pasta do projeto e instale as dependências:
-
-```bash
-npm install
-```
-
-3. Execute o projeto:
-
-```bash
-npm run dev
-```
-
-4. Acesse no navegador: [http://localhost:5173](http://localhost:5173) (Vite).
-
-## 📚 Mais informações do curso
-
-Curtiu o projeto e quer aprender na prática? O passo a passo completo faz parte do segundo ccurso da carreira React da Alura, com foco em experiência real de desenvolvimento, boas práticas e refatoração progressiva.
-
-Se quiser experimentar, explore o código e customize o checklist do seu jeito!
+Aplicação React para gerenciar tarefas de estudo (criar, editar, remover, marcar como concluídas), com filtros, busca, prioridade e feedback visual.
 
 ---
 
-Vida longa e próspera 🚀
+## 💻 Tecnologias Utilizadas
+
+- React (hooks: useState, useEffect, useContext)
+- Vite (dev server / build)
+- CSS (estilos organizados por componente; classes simples)
+- SVGs inline para ícones (components/icons)
+- localStorage para persistência de dados (hooks/useEffect)
+- Implementações internas:
+  - react-toastify - para exibir feedback ao usuário
+  - Dialog (modal acessível)
+
+---
+
+## 🧱 Estrutura do Projeto
+
+- src/
+  - App.jsx
+  - index.css
+  - main.jsx
+  - components/ (todas as pastas com o arquivo jsx e o arquivo de estilos CSS)
+    - Button/
+    - ChecklistsWrapper/
+    - ChecklistsWrapperHeader/
+    - Container/
+    - DateInput/
+    - Dialog/
+    - EmptyState/
+    - FabButton/
+    - Header/
+    - Heading/
+    - icons/ (vários ícones: IconSearch, IconPlus, IconTrash, IconSchool, IconPencil, IconClose, IconHighPriority)
+    - LabelInput/
+    - SelectInput/
+    - SubHeading/
+    - TextInput/
+    - TodoForm/
+    - TodoGroup/
+    - TodoItem/
+    - TodoList/
+    - TodoProvider/ (Contexto da aplicação para os todos)
+
+---
+
+## 📸 Prévia do Projeto
+
+---
+
+## 🧩 Principais Conceitos Aplicados
+
+- Componentização: cada responsabilidade em um componente (Single Responsibility).
+- Hooks do React: gerenciamento local (useState), efeitos (useEffect) e contexto (useContext).
+- Acessibilidade (melhorias aplicadas / sugeridas):
+  - SVGs com role/title/aria-label/aria-hidden.
+  - Botões toggles com aria-pressed.
+  - Diálogo com role="dialog" e gerenciamento de foco (recomendado focus-trap).
+  - Inputs com id/label ou aria-label;
+- Persistência: salvar/ler do localStorage para manter tarefas entre sessões.
+- Feedback ao usuário: toast para sucesso/erro, empty-state quando não há tarefas.
+- Tratamento de erros: recomenda-se envolver operações assíncronas com try/catch e exibir erros via toast.
+
+---
+
+## 💻 Requisitos funcionais
+- Criar uma nova tarefa (com título e descrição obrigatórios, data e prioridade opcionais).
+- Editar uma tarefa existente.
+- Remover uma tarefa.
+- Marcar/desmarcar tarefa como concluída.
+- Filtrar tarefas por:
+  - Estado: pendentes / concluídas.
+  - Prioridade alta.
+  - Busca por título (case-insensitive).
+- Modal para adicionar/editar tarefa.
+- Exibir mensagem (toast) de sucesso/erro ao criar/editar/remover.
+- Empty state quando não houver tarefas.
+
+---
+
+## 💻 Requisitos não funcionais
+- Responsividade: UI adapta-se a telas pequenas e grandes.
+- Performance: renderizações otimizadas (listas simples, filtragens locais).
+- Acessibilidade (WCAG básico):
+  - Elementos semânticos: header, main, footer.
+  - Controle de foco em modais.
+  - Labels para inputs / aria attributes em controles.
+  - Contraste e indicadores de foco visível.
+- Persistência: usar localStorage para manter estado entre sessões.
+- Manutenibilidade: código organizado por componentes e estilo consistente.
+
+---
+
+## ⚙️ Como Executar Localmente
+1. Instalar dependências:
+   npm install
+2. Rodar em desenvolvimento:
+   npm run dev
+3. Acessar:
+   http://localhost:5173
+
+---
+
+## ⚙️ Links Úteis
+
+https://react.dev/  
+https://www.npmjs.com/package/react-toastify  
